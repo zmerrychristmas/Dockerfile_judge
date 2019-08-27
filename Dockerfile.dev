@@ -1,4 +1,4 @@
-FROM judge0/api
+FROM judge0/api:dev
 LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com"
 
 RUN apt-get update && apt-get install -y vim
@@ -15,3 +15,6 @@ RUN useradd -u $DEV_USER_ID -m -r $DEV_USER && \
     echo "source /usr/src/api/judge0-api.conf" >> /home/$DEV_USER/.bashrc
 
 USER $DEV_USER
+RUN echo '\
+        source $(~/dlang/install.sh dmd -a) \
+    ' >> ~/.profile

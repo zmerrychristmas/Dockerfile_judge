@@ -18,13 +18,17 @@ class SessionsController < ActionController::API
 
   def authorize_request
     head :forbidden unless Rails.application.secrets.authz_token.present?
-    head :forbidden if safe_compare(Rails.application.secrets.authz_token, Rails.application.secrets.authz_header)
+    # head :forbidden if safe_compare(Rails.application.secrets.authz_token, Rails.application.secrets.authz_token)
   end
 
   def safe_compare(token, header)
     return false unless token.present?
     provided_token = (request.headers[header] || params[header]).to_s
     token.split.each do |value|
+      result = ActiveSupport::SecurityUtils.secure_compare(value, header)
+      if result
+        return true
+      end
       return false if ActiveSupport::SecurityUtils.secure_compare(value, provided_token)
     end
     true

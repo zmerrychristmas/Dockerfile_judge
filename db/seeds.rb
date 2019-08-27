@@ -287,6 +287,62 @@ languages = [
     source_file: "a.out",
     compile_cmd: "/bin/chmod +x a.out",
     run_cmd: "./a.out"
+  },
+
+  {
+    name: "PHP",
+    source_file: "main.php",
+    run_cmd: "/usr/bin/php main.php"
+  },
+
+  {
+    name: "Common Lisp",
+    source_file: "main.lisp",
+    run_cmd: "/usr/bin/sbcl main.lisp"
+  },
+
+  {
+    name: "Erlang",
+    source_file: "main.erl",
+    compile_cmd: "/usr/bin/erlc main.erl",
+    run_cmd: "/usr/bin/erl -noshell -s main start -s init stop"
+  },
+
+  {
+    name: "Elixir",
+    source_file: "main.exs",
+    run_cmd: "/usr/bin/elixir main.exs"
+  },
+
+  {
+    name: "Groovy",
+    source_file: "main.groovy",
+    run_cmd: "/usr/bin/groovy main.groovy"
+  },
+
+  {
+    name: "Fsharp",
+    source_file: "main.fs",
+    compile_cmd: "/usr/bin/fsharpc main.fs && /bin/chmod +x main.exe",
+    run_cmd: "./main.exe"
+  },
+  {
+    name: "Scala",
+    source_file: "Main.scala",
+    compile_cmd: "/usr/bin/scalac Main.scala",
+    run_cmd: "/usr/bin/scala Main"
+  },
+
+  {
+    name: "Perl",
+    source_file: "main.pl",
+    run_cmd: "/usr/bin/perl main.pl"
+  },
+
+  {
+    name: "Smalltalk",
+    source_file: "main.st",
+    run_cmd: "/usr/bin/gst main.st"
   }
 ]
 

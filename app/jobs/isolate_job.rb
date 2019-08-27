@@ -47,7 +47,7 @@ class IsolateJob < ApplicationJob
   def init
     @id = submission.id%2147483647
     @cgroups = (submission.enable_per_process_and_thread_time_limit | submission.enable_per_process_and_thread_memory_limit ? "--cg" : "")
-    @workdir = `isolate #{cgroups} -b #{id} --init`.chomp
+    @workdir = `sudo isolate #{cgroups} -b #{id} --init`.chomp
     @box = workdir + "/box/"
     @tmp = workdir + "/tmp/"
     @source = box + submission.language.source_file
@@ -55,6 +55,7 @@ class IsolateJob < ApplicationJob
     @stdout = workdir + "/" + STDOUT_FILE
     @stderr = workdir + "/" + STDERR_FILE
     @meta = workdir + "/" + META_FILE
+    `sudo chown $(whoami):$(whoami) #{@box}`
   end
 
   def write
@@ -107,7 +108,7 @@ class IsolateJob < ApplicationJob
   end
 
   def run
-    command = "isolate #{cgroups} \
+    command = "sudo isolate #{cgroups} \
     -s \
     -b #{id} \
     -M #{meta} \

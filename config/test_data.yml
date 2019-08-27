@@ -1,0 +1,11 @@
+default: &default
+  test_data_storage: ENV["TEST_DATA_STORAGE"]
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
