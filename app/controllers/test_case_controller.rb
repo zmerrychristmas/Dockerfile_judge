@@ -2,7 +2,8 @@ class TestCaseController < ApplicationController
   # before_action :authorize_request, only: [:index]
 
   def create_test
-
+    p params
+    render json: []
   end
 
   def append_test

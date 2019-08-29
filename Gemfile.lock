@@ -47,6 +47,8 @@ GEM
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 13.0)
     arel (7.1.4)
+    attach (1.0.5)
+      records_manipulator (>= 1.0, < 2.0)
     builder (3.2.3)
     byebug (11.0.1)
     case_transform (0.2)
@@ -136,6 +138,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    records_manipulator (1.0.1)
     redis (4.1.2)
     redis-namespace (1.6.0)
       redis (>= 3.0.4)
@@ -200,6 +203,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.2)
   annotate (~> 2.7)
+  attach
   codeclimate-test-reporter (~> 0.6.0)
   database_cleaner (~> 1.5)
   enumerations (~> 2.1)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929175654) do
+ActiveRecord::Schema.define(version: 20190828040007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,50 @@ ActiveRecord::Schema.define(version: 20170929175654) do
     t.string "compile_cmd"
     t.string "run_cmd"
     t.string "source_file"
+  end
+
+  create_table "problem_categories", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "problem_data", force: :cascade do |t|
+    t.integer  "problem_id"
+    t.string   "path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["problem_id"], name: "index_problem_data_on_problem_id", using: :btree
+  end
+
+  create_table "problem_solutions", force: :cascade do |t|
+    t.integer  "problem_id"
+    t.text     "description"
+    t.text     "source_code"
+    t.integer  "language_id"
+    t.integer  "difficulty"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["language_id"], name: "index_problem_solutions_on_language_id", using: :btree
+    t.index ["problem_id"], name: "index_problem_solutions_on_problem_id", using: :btree
+  end
+
+  create_table "problems", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "code"
+    t.integer  "difficulty"
+    t.boolean  "is_public"
+    t.integer  "author_id"
+    t.integer  "point"
+    t.integer  "solve_count"
+    t.text     "input_string"
+    t.text     "output_string"
+    t.bigint   "time_limit"
+    t.bigint   "memory_limitz"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "submissions", force: :cascade do |t|

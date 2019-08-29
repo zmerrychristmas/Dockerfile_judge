@@ -9,6 +9,7 @@ gem 'puma', '~> 3.0'
 gem 'rack-cors', require: 'rack/cors'
 gem 'resque', '~> 2.0.0'
 gem 'will_paginate', '~> 3.1'
+gem 'attach'
 
 group :development do
   gem 'annotate', '~> 2.7'
