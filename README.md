@@ -1,8 +1,10 @@
 # Judge0 API
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/judge0/api/blob/master/LICENSE)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/hermanzdosilovic)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.buymeacoffee.com/zmerrychristmas)
 
 ## About
+I was change some api core and setting please beware and check router file.
+link to original project here: https://www.patreon.com/hermanzdosilovic
 **Judge0 API** is an web API for code compilation and execution. Complete and detailed API documentation is available
 on https://api.judge0.com.
 
