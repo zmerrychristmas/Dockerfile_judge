@@ -142,4 +142,4 @@ You have four attributes:
 We already provided enough examples for most common languages, be sure to check that out.
 
 ## Donate
-If you like Judge0, please consider making a [donation](https://www.paypal.me/hermanzdosilovic) to support this project.
+If you like Judge0, please consider making a [donation](https://www.buymeacoffee.com/zmerrychristmas) to support this project.
